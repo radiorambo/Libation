@@ -7,6 +7,7 @@ export default defineConfig({
   head: [["link", { rel: "icon", href: "/favicon.ico" }]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    base: "/Libation/",
     logo: {
       light: "/libation_logo_light.svg",
       dark: "/libation_logo_dark.svg",
