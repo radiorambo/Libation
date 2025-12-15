@@ -5,9 +5,9 @@ export default defineConfig({
   title: "Libation",
   description: "Libation: Liberate your Library - A free application for downloading your Audible audiobooks",
   head: [["link", { rel: "icon", href: "/favicon.ico" }]],
+  base: "/Libation/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    base: "/Libation/",
     logo: {
       light: "/libation_logo_light.svg",
       dark: "/libation_logo_dark.svg",
