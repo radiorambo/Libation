@@ -1,9 +1,11 @@
 import { defineConfig } from "vitepress";
+import { routex } from "@itznotabug/routex";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Libation",
-  description: "Libation: Liberate your Library - A free application for downloading your Audible audiobooks",
+  description:
+    "Libation: Liberate your Library - A free application for downloading your Audible audiobooks",
   head: [["link", { rel: "icon", href: "/favicon.ico" }]],
   cleanUrls: true,
   themeConfig: {
@@ -26,14 +28,20 @@ export default defineConfig({
     nav: [
       { text: "Getting Started", link: "/docs/getting-started" },
       { text: "Docs", link: "/docs/index" },
-      { text: "Download", link: "https://github.com/rmcrackan/Libation/releases/latest" },
-      { text: "Issues & Requests", link: "https://github.com/rmcrackan/Libation/issues" },
+      {
+        text: "Download",
+        link: "https://github.com/rmcrackan/Libation/releases/latest",
+      },
+      {
+        text: "Issues & Requests",
+        link: "https://github.com/rmcrackan/Libation/issues",
+      },
       { text: "Donate", link: "https://www.paypal.com/paypalme/mcrackan" },
     ],
     sidebar: [
       {
         items: [
-          { text: "Overview", link: "/docs/index"},
+          { text: "Overview", link: "/docs/index" },
           { text: "Getting Started", link: "/docs/getting-started" },
           { text: "FAQ", link: "/docs/frequently-asked-questions" },
           {
@@ -56,7 +64,10 @@ export default defineConfig({
         text: "Features",
         collapsed: false,
         items: [
-          { text: "Audio File Formats", link: "/docs/features/audio-file-formats" },
+          {
+            text: "Audio File Formats",
+            link: "/docs/features/audio-file-formats",
+          },
           { text: "Naming Templates", link: "/docs/features/naming-templates" },
           {
             text: "Searching & Filtering",
@@ -67,12 +78,19 @@ export default defineConfig({
       {
         text: "Advanced",
         collapsed: false,
+        items: [{ text: "Advanced Topics", link: "/docs/advanced/advanced" }],
+      },
+      {
+        text: "Development",
+        collapsed: false,
         items: [
-          { text: "Advanced Topics", link: "/docs/advanced/advanced" },
           {
-            text: "Linux Development Setup",
-            link: "/docs/advanced/linux-development-setup-using-nix",
+            text: "Getting Started",
+            link: "/docs/development/getting-started",
           },
+          { text: "Contribute", link: "/docs/development/contribute" },
+          { text: "Website & Docs", link: "/docs/development/website" },
+          { text: "Linux Setup (Nix)", link: "/docs/development/nix-linux-setup" },
         ],
       },
     ],
@@ -81,10 +99,32 @@ export default defineConfig({
       level: "deep",
     },
 
-    socialLinks: [{ icon: "github", link: "https://github.com/rmcrackan/Libation" }],
+    socialLinks: [
+      { icon: "github", link: "https://github.com/rmcrackan/Libation" },
+    ],
 
     search: {
       provider: "local",
     },
+  },
+  vite: {
+    plugins: [
+      routex({
+        "/Libation/Documentation/Advanced.md": "/docs/advanced/advanced",
+        "/Libation/Documentation/AudioFileFormats.md":
+          "/docs/features/audio-file-formats",
+        "/Libation/Documentation/Docker.md": "/docs/installation/docker",
+        "/Libation/Documentation/FrequentlyAskedQuestions.md":
+          "/docs/frequently-asked-questions",
+        "/Libation/Documentation/GettingStarted.md": "/docs/getting-started",
+        "/Libation/Documentation/InstallOnLinux.md": "/docs/installation/linux",
+        "/Libation/Documentation/InstallOnMac.md": "/docs/installation/mac",
+        "/Libation/Documentation/LinuxDevelopmentSetupUsingNix.md":
+          "/docs/development/nix-linux-setup",
+        "/Libation/Documentation/NamingTemplates.md": "/docs/features/naming-templates",
+        "/Libation/Documentation/SearchingAndFiltering.md":
+          "/docs/features/searching-and-filtering",
+      }),
+    ],
   },
 });
